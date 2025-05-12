@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alcas-Members</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 id="title">Alcas</h1>
+    <section class="pre">
+        <div class="left">
+            <h3 class="pre-title">Date :</h3>
+            <h3 class="pre-title">Day :</h3>
+        </div>
+        <div class="right">
+            <h3 id="today-date"></h3>
+            <h3 id="today"></h3>
+        </div>        
+    </section>
+    <section class="login-sec">
+        <h2>Login</h2>
+        <input type="text" id="userId" placeholder="Enter Your ID" class="input-field">
+        <input type="text" id="loginMessage" placeholder="What will you do today?" class="input-field">
+        <button  id="loginBtn">Login</button>
+        <div id="status"></div>
+
+    </section>
+    <div class="checkDiv">
+        <button  id="checkActive">Check active members</button>
+        <a href="logged.html">LOgin</a>
+    </div>
+    
+
+</body>
+<script src="script.js"></script>
+<script src="database.js" type="module"></script>
+<!-- <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+  // Your Firebase configuration
+  const firebaseConfig = {
+  apiKey: "AIzaSyDJhK_sxsZXWiInZsgkKEXO_g_hXupyL6w",
+  authDomain: "alcas-team.firebaseapp.com",
+  projectId: "alcas-team",
+  storageBucket: "alcas-team.firebasestorage.app",
+  messagingSenderId: "624815962940",
+  appId: "1:624815962940:web:6cbd580ceb223751cbfc39",
+  measurementId: "G-2ZH3GYXL95"
+};
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
+  // Initialize Firestore and Auth
+  const db = getFirestore(app);
+  const auth = getAuth(app);
+</script> -->
+</html>

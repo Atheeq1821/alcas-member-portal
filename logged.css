@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    padding: 0px 5%;
+}
+h3{
+    font-weight: 500;
+}
+
+h2{
+    margin-top: 30px;
+}
+
+#worked{
+    font-weight: bolder;
+    font-size: 50px;
+}
+
+.working-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logout{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+h5{
+    font-size: 20px;
+}
+
+#logoutMessage{
+    width: 90%;
+    font-size: 95%;
+    padding: 10px 20px;
+}
+
+
+#logoutBtn{
+    background-color: #5685AC;
+    color: white;
+    width: 80%;
+    font-size: 20px;
+    padding: 8px 0px;
+    border-radius: 15px;
+    border: 0px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+#logoutBtn:hover{
+    box-shadow: 10px 10px 1px black;
+}
+
+#logoutBtn:active{
+    background-color: #284053;
+}
