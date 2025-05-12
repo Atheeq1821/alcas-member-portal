@@ -41,18 +41,53 @@ async function addLogin(userId,message) {
             userID: userId,
             loginMessage: message,
             loggedTime: serverTimestamp(),
-            userDocId:documentID
+            userDocId:documentID,
+            active:true
         });
         localStorage.setItem("userDocId", documentID);
         window.location.href = "logged.html";
       }
 }
 
+async function isUserAlreadyActive(userId) {
+  const q = query(
+    collection(db, "LoggedIn"),
+    where("userID", "==", userId),
+    where("active", "==", true)
+  );
+  const newSnapshot = await getDocs(q);
+  if(!newSnapshot.empty){
+    return true;
+  }
+  return false
+}
 
+async function addtoLocal(userId){
+      const q = query(collection(db, "Alcas-team"), where("userID", "==", userId));
+      const querySnapshot = await getDocs(q);
+      if (querySnapshot.empty) {
 
-loginbtn.addEventListener("click", () => {
+        document.getElementById("status").innerText = "❌ User ID not found.";
+        return;
+      }
+      let documentID = null;
+      querySnapshot.forEach((doc) => {
+        documentID = doc.id;
+      });
+      localStorage.setItem("userDocId", documentID);
+      window.location.href = "logged.html";
+
+}
+
+loginbtn.addEventListener("click", async() => {
     const userId = document.getElementById("userId").value;
     const message = document.getElementById("loginMessage").value;
+    const alreadyActive = await isUserAlreadyActive(userId);
+    if(alreadyActive){
+      addtoLocal(userId)
+      console.log(alreadyActive)
+      return
+    }
     if(userId == ""){
         document.getElementById("status").innerText = "User ID is empty";
         return;

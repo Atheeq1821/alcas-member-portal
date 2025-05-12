@@ -30,7 +30,7 @@ const logoutBtn = document.getElementById("logoutBtn")
 const userName = document.getElementById("username")
 const userDocId = localStorage.getItem("userDocId");
 
-
+const currid = null;
 window.onload =async function() {
     
     if (!userDocId) {
@@ -46,6 +46,10 @@ window.onload =async function() {
         return;
     }
     const docData = querySnapshot.docs[0].data();
+    if(!docData.active){
+        localStorage.removeItem("userDocId");
+        window.location.href = "index.html"
+    }
     const loggedInTime = docData.loggedTime?.toDate();
     const currUser = docData.Name
     userName.innerHTML = currUser
@@ -88,7 +92,8 @@ logoutBtn.addEventListener("click", async() => {
     const docRef = querySnapshot.docs[0].ref;
     await updateDoc(docRef, {
     logoutTime: serverTimestamp(),
-    logoutMessage: logoutM.value.trim()
+    logoutMessage: logoutM.value.trim(),
+    active:false
   });
   const updatedSnapshot = await getDocs(q);
   const docData = updatedSnapshot.docs[0].data();
