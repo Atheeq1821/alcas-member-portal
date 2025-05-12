@@ -36,7 +36,6 @@ async function addLogin(userId,message) {
 
 
       if (name){
-        document.getElementById("status").innerText = `Name: ${name}`;
         await addDoc(collection(db, "LoggedIn"), {
             Name: name,
             userID: userId,
